@@ -1,6 +1,33 @@
 #include <iostream>
 
+std::string first (std::string first_part)
+{
+    int index = first_part.find('@');
+    first_part = first_part.substr(0, index);
+    return first_part;
+}
+std::string second (std::string second_part)
+{
+    int index = second_part.rfind('@');
+    second_part = second_part.substr(index+1, second_part.length());
+    return second_part;
+}
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    std::string email, first_part, second_part;
+    std::cout << "Email Verify!" << std::endl;
+    std::cout << "Input email: "<< std::endl;
+    std::cin >> email;
+    first_part = first (email);
+    second_part =  second (email);
+    if ( first_part.length()+second_part.length()+1 == email.length() ) {
+        std::cout << "VERIFY!!!!" << "\n";
+    }
+    else {
+        std::cout << "Error!!!!" << "\n";
+    }
+    std::cout << first (email) << "\n";
+    std::cout << second (email) << "\n";
+
+
     return 0;
 }
