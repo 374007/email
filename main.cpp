@@ -1,5 +1,5 @@
 #include <iostream>
-std::string normal = "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm!#$%&\*+-'/=?^_`{|}~";
+std::string normal = "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm!#$%&*+-'\/=?^_`{|}~";
 bool valid=true;
 
 std::string first (std::string first_part)
@@ -23,8 +23,9 @@ int main() {
     second_part =  second (email);
     if (first_part.length()+second_part.length()+1 == email.length()  && (first_part.length()>=1 && first_part.length()<=64) &&
        (second_part.length()>=1 && second_part.length()<=63)) {
-        valid = true;
-        std::cout << "VERIFY!!!!" << "\n";
+
+        if  (first_part.find("..") != -1)  valid = false;
+      std::cout << first_part.find("..") << "\n";
     }
     else {
         valid = false;
@@ -32,9 +33,14 @@ int main() {
     }
 
 
+    if (!valid) {
+        std::cout << "ERROR" << "\n";}
+    else {
+        std::cout << "VALID"<< "\n";
+    }
     std::cout << first (email) << "\n";
     std::cout << second (email) << "\n";
-
+    std::cout << valid << "\n";
 
     return 0;
 }
