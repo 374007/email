@@ -14,6 +14,20 @@ std::string second (std::string second_part)
     second_part = second_part.substr(index+1, second_part.length());
     return second_part;
 }
+
+bool simbol (std::string text) {
+   bool result = true;
+    for (int i = 0; i < text.length();i++) {
+       // for (int j = 0; j < normal.length(); j++) {
+            if (normal.find(text[i]) == -1)  {
+               result = false;
+               break ;
+            }
+       // }
+    }
+    return result;
+
+}
 int main() {
     std::string email, first_part, second_part;
     std::cout << "Email Verify!" << std::endl;
@@ -26,6 +40,7 @@ int main() {
 
         if  (first_part.find("..") != -1)  valid = false;
       std::cout << first_part.find("..") << "\n";
+        valid = simbol (first_part) ;
     }
     else {
         valid = false;
