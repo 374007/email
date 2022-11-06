@@ -47,10 +47,5 @@ int main() {
     else {
         valid = false;
     }
-    if (!valid) {
-        std::cout << "NO!" << "\n";}
-    else {
-        std::cout << "YES!"<< "\n";
-    }
-
+    valid ? std::cout << "YES!"<< "\n": std::cout << "NO!" << "\n";
 }
